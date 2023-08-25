@@ -1,0 +1,504 @@
+@charset "UTF-8";
+/*** GLOBAL ***/
+/* Variables
+  ============================= */
+/* Helpers
+  ============================= */
+/* Base
+  ============================= */
+@font-face {
+  font-family: "holberton_school-icon";
+  src: url("fonts/holberton_school-icon.eot");
+  src: url("fonts/holberton_school-icon.eot") format("embedded-opentype"), url("fonts/holberton_school-icon.ttf") format("truetype"), url("fonts/holberton_school-icon.woff") format("woff"), url("fonts/holberton_school-icon.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+[class^=hbi-], [class*=" hbi-"] {
+  font-family: "holberton_school-icon" !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #FF6565;
+}
+
+html {
+  font-size: 87.5%; /* 基本フォント14px */
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  html {
+    font-size: 62.5%; /* 基本フォント10px */
+  }
+}
+@media (min-width: 769px) and (max-width: 1400px) {
+  html {
+    font-size: 62.5%; /* 基本フォント10px */
+  }
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Header
+  ============================= */
+.hero__header {
+  padding-top: 1.8rem;
+  margin-bottom: 19rem;
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .hero__header {
+    padding-top: 2.8rem;
+    margin-bottom: 31rem;
+  }
+}
+@media (min-width: 769px) and (max-width: 1400px) {
+  .hero__header {
+    padding-top: 2.8rem;
+    margin-bottom: 31rem;
+  }
+}
+
+.hamburger-menu {
+  display: block; /* ハンバーガーメニューを表示 */
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .hamburger-menu {
+    display: none;
+  }
+}
+@media (min-width: 769px) and (max-width: 1400px) {
+  .hamburger-menu {
+    display: none;
+  }
+}
+
+#menu-toggle {
+  display: none; /* トリガーにするinputタグは非表示*/
+}
+
+.cross-icon {
+  display: none; /* バツアイコンを非表示に */
+}
+
+#menu-toggle:checked ~ .hero__header-nav {
+  display: flex; /* チェックボックスがチェックされたらメニューを表示 */
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-start;
+}
+
+/* ハンバーガーメニューがクリックされたら、ハンバーガーアイコンを非表示、バツアイコンを表示 */
+#menu-toggle:checked ~ .hamburger-menu .cross-icon {
+  display: block;
+}
+
+#menu-toggle:checked ~ .hamburger-menu svg:not(.cross-icon) {
+  display: none;
+}
+
+.hero__header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .hero__header-container {
+    justify-content: space-between;
+    margin: 0 6.6rem;
+  }
+}
+@media (min-width: 769px) and (max-width: 1400px) {
+  .hero__header-container {
+    justify-content: space-between;
+    margin: 0 6.6rem;
+  }
+}
+
+.hamburger-menu {
+  position: absolute;
+  left: 1.3rem;
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .hamburger-menu {
+    position: static;
+    left: auto;
+  }
+}
+@media (min-width: 769px) and (max-width: 1400px) {
+  .hamburger-menu {
+    position: static;
+    left: auto;
+  }
+}
+
+.hero__logo img {
+  height: 32px;
+}
+
+.hero__header-nav {
+  display: none; /* メニューをデフォルトで非表示にする */
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%); /*自身の幅50%左に移動*/
+}
+.hero__header-nav > a {
+  color: #FFF;
+  text-align: center;
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  line-height: 3rem;
+  text-decoration: none;
+}
+.hero__header-nav > a:hover, .hero__header-nav > a:active {
+  color: #FF6565;
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .hero__header-nav > a {
+    color: #FFF;
+    text-align: center;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    font-size: 1.2rem;
+  }
+}
+@media (min-width: 769px) and (max-width: 1400px) {
+  .hero__header-nav > a {
+    color: #FFF;
+    text-align: center;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    font-size: 1.2rem;
+  }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .hero__header-nav > a:nth-child(2) {
+    margin-right: 4rem;
+    margin-left: 4rem;
+  }
+}
+@media (min-width: 769px) and (max-width: 1400px) {
+  .hero__header-nav > a:nth-child(2) {
+    margin-right: 4rem;
+    margin-left: 4rem;
+  }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .hero__header-nav {
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+    display: flex;
+    margin-left: auto;
+  }
+}
+@media (min-width: 769px) and (max-width: 1400px) {
+  .hero__header-nav {
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+    display: flex;
+    margin-left: auto;
+  }
+}
+
+/* Hero
+  ============================= */
+.hero {
+  height: 869px;
+  background-image: linear-gradient(to bottom, rgba(41, 48, 61, 0.0001), #071629), url(images/headphones_hero_1_mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .hero {
+    height: 800px;
+    background-image: linear-gradient(to bottom, rgba(41, 48, 61, 0.0001), #071629), url(images/headphones_hero_1.jpg);
+    background-size: cover;
+  }
+}
+@media (min-width: 769px) and (max-width: 1400px) {
+  .hero {
+    height: 800px;
+    background-image: linear-gradient(to bottom, rgba(41, 48, 61, 0.0001), #071629), url(images/headphones_hero_1.jpg);
+    background-size: cover;
+  }
+}
+
+.hero__intro {
+  text-align: center;
+}
+
+.intro__container h1 {
+  color: #FFF;
+  text-align: center;
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 2.3rem;
+  text-align: center;
+  margin-bottom: 0.3rem;
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .intro__container h1 {
+    font-size: 3.2rem;
+    margin-bottom: 0.5rem;
+  }
+}
+@media (min-width: 769px) and (max-width: 1400px) {
+  .intro__container h1 {
+    font-size: 3.2rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.intro__slogan {
+  color: #FFF;
+  text-align: center;
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1.1rem;
+  width: 19rem;
+  margin: 0 auto;
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .intro__slogan {
+    font-size: 1.6rem;
+    width: 35.5rem;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 769px) and (max-width: 1400px) {
+  .intro__slogan {
+    font-size: 1.6rem;
+    width: 35.5rem;
+    margin: 0 auto;
+  }
+}
+
+.button {
+  background-color: #FF6565;
+  color: #FFFFFF;
+  border-radius: 1.37rem;
+  padding: 0.8rem 1.9rem;
+  text-align: center;
+  font-family: Source Sans Pro;
+  font-size: 0.87rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border: none;
+  margin-top: 1.4rem;
+  margin-bottom: 4.5rem;
+}
+.button:hover, .button:active {
+  opacity: 0.9;
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .button {
+    font-size: 1.4rem;
+    padding: 1.3rem 3.1rem;
+    border-radius: 2.2rem;
+    width: 16.2rem;
+    margin-top: 4rem;
+    margin-bottom: 6.4rem;
+  }
+}
+@media (min-width: 769px) and (max-width: 1400px) {
+  .button {
+    font-size: 1.4rem;
+    padding: 1.3rem 3.1rem;
+    border-radius: 2.2rem;
+    width: 16.2rem;
+    margin-top: 4rem;
+    margin-bottom: 6.4rem;
+  }
+}
+
+.intro__text {
+  color: #FFF;
+  text-align: center;
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.8rem;
+  width: 24rem;
+  margin: auto;
+  margin-bottom: 7.5rem;
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .intro__text {
+    font-size: 1.6rem;
+    width: 64rem;
+    line-height: 2.6rem;
+  }
+}
+@media (min-width: 769px) and (max-width: 1400px) {
+  .intro__text {
+    font-size: 1.6rem;
+    width: 64rem;
+    line-height: 2.6rem;
+  }
+}
+
+/* Section What-we-do
+  ============================= */
+.what-we-do {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.what-we-do__intro {
+  max-width: 22.8rem;
+  margin: 0 1.7rem 7.8rem 1.7rem;
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .what-we-do__intro {
+    max-width: 46rem;
+    margin: 0 4.7rem 7.8rem 4.7rem;
+  }
+}
+@media (min-width: 769px) and (max-width: 1400px) {
+  .what-we-do__intro {
+    max-width: 64rem;
+    margin: 0 4.7rem 7.8rem 4.7rem;
+  }
+}
+
+.what-we-do__intro h1 {
+  color: #071629;
+  text-align: center;
+  font-family: SourceSansPro;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  padding-top: 7.8rem;
+  margin-bottom: 2.8rem;
+  font-size: 2.2rem;
+}
+
+.what-we-do__intro p {
+  color: #071629;
+  text-align: center;
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.625rem; /* 162.5% */
+  font-size: 1.1rem;
+  line-height: 1.9rem;
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .what-we-do__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 14rem;
+  }
+}
+@media (min-width: 769px) and (max-width: 1400px) {
+  .what-we-do__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: 0 14rem;
+  }
+}
+
+.what-we-do__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 6.8rem;
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .what-we-do__item {
+    width: 50%;
+  }
+}
+@media (min-width: 769px) and (max-width: 1400px) {
+  .what-we-do__item {
+    width: 25%;
+  }
+}
+@media (min-width: 769px) and (max-width: 1400px) {
+  .what-we-do__item:not(:first-of-type) {
+    margin-left: 5.8rem;
+  }
+}
+.what-we-do__item h2 {
+  font-size: 1.3rem;
+  margin-top: 0;
+  margin-bottom: 0.9rem;
+}
+.what-we-do__item p {
+  font-size: 1rem;
+  line-height: 1.8rem;
+  width: 15rem;
+  text-align: center;
+}
+
+.hbi-sound::before {
+  content: "\e90e";
+  font-size: 6.7rem;
+  margin-bottom: 1.7rem;
+}
+
+.hbi-video:before {
+  content: "\e910";
+  font-size: 6.7rem;
+  margin-bottom: 1.7rem;
+}
+
+.hbi-music:before {
+  content: "\e90d";
+  font-size: 6.7rem;
+  margin-bottom: 1.7rem;
+}
+
+.hbi-hearing:before {
+  content: "\e909";
+  font-size: 6.7rem;
+  margin-bottom: 1.7rem;
+}
