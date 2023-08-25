@@ -1,0 +1,349 @@
+/*** GLOBAL ***/
+
+/* Variables
+  ============================= */
+
+$color-primary: #FFFFFF;
+$color-red: #FF6565;
+$desktop: 1400px;
+$tablet: 768px;
+$mobile: 480px;
+
+/* Helpers
+  ============================= */
+
+@mixin btnHoverActive {
+  &:hover, &:active {
+    opacity: 0.9;
+  }
+}
+
+@mixin typo-h1 {
+  color: #FFF;
+  text-align: center;
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+@mixin typo-p {
+  color: #FFF;
+  text-align: center;
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+@mixin tablet {
+  @media (min-width: ($mobile + 1)) and (max-width: $tablet) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: ($tablet + 1)) and (max-width: $desktop) {
+    @content;
+  }
+}
+
+/* Base
+  ============================= */
+
+html {
+  font-size: 87.5%;  /* 基本フォント14px */
+
+  @include tablet {
+    font-size: 62.5%; /* 基本フォント10px */
+  }
+
+  @include desktop {
+    font-size: 62.5%; /* 基本フォント10px */
+  }
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto; // コンテンツはページの中央に配置
+  width: 100%;   // コンテンツがフル幅に広がるようにする
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Header
+  ============================= */
+
+.hero__header {
+  padding-top: 1.8rem;
+  margin-bottom: 19rem;
+
+  @include tablet {
+    padding-top: 2.8rem;
+    margin-bottom: 31rem;
+  }
+
+  @include desktop {
+    padding-top: 2.8rem;
+    margin-bottom: 31rem;
+  }
+}
+.hamburger-menu {
+  display: block; /* ハンバーガーメニューを表示 */
+
+  @include tablet {
+    display: none;
+  }
+
+  @include desktop {
+    display: none;
+  }
+}
+
+#menu-toggle {
+  display: none; /* トリガーにするinputタグは非表示*/
+}
+
+.cross-icon {
+  display: none; /* バツアイコンを非表示に */
+}
+
+#menu-toggle:checked ~ .hero__header-nav {
+  display: flex; /* チェックボックスがチェックされたらメニューを表示 */
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-start;
+}
+
+/* ハンバーガーメニューがクリックされたら、ハンバーガーアイコンを非表示、バツアイコンを表示 */
+#menu-toggle:checked ~ .hamburger-menu .cross-icon {
+  display: block;
+}
+
+#menu-toggle:checked ~ .hamburger-menu svg:not(.cross-icon) {
+  display: none;
+}
+
+.hero__header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  position: relative; 
+
+@include tablet {
+  justify-content:space-between;
+  margin: 0 6.6rem;
+}
+@include desktop {
+  justify-content:space-between;
+  margin: 0 6.6rem;
+}
+}
+
+.hamburger-menu {
+  position: absolute;  
+  left: 1.3rem; 
+
+  @include tablet {
+    position: static;
+    left: auto;
+    
+  }
+  
+  @include desktop {
+    position: static;
+    left: auto;
+  }
+}
+
+.hero__logo {
+  img {
+    height: 32px;
+  }
+}
+
+.hero__header-nav {
+  display: none; /* メニューをデフォルトで非表示にする */
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%); /*自身の幅50%左に移動*/
+  > a {
+    @include typo-p;
+    line-height: 3rem;
+    text-decoration:none;
+
+    &:hover, &:active {
+      color: $color-red;
+    }
+
+    @include tablet {
+      @include typo-p;
+      font-size: 1.2rem;
+    }
+
+    @include desktop {
+      @include typo-p;
+      font-size: 1.2rem;
+    }
+
+    &:nth-child(2) {
+      @include tablet {
+        margin-right: 4rem;
+        margin-left: 4rem;
+      }
+      @include desktop {
+        margin-right: 4rem;
+        margin-left: 4rem;
+      }
+    }
+  }
+
+  @include tablet {
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+    display: flex;
+    margin-left: auto;
+  }
+  
+  @include desktop {
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+    display: flex;
+    margin-left: auto;
+  }
+}
+
+/* Hero
+  ============================= */
+
+.hero {
+  height: 869px;
+  background-image: linear-gradient(to bottom, rgba(41, 48, 61, 0.0001), #071629), url(images/headphones_hero_1_mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+
+  @include tablet {
+    height: 800px;
+    background-image: linear-gradient(to bottom, rgba(41, 48, 61, 0.0001), #071629), url(images/headphones_hero_1.jpg);
+    background-size: cover;
+  }
+
+  @include desktop {
+    height: 800px;
+    background-image: linear-gradient(to bottom, rgba(41, 48, 61, 0.0001), #071629), url(images/headphones_hero_1.jpg);
+    background-size: cover;
+  }
+}
+.hero__intro {
+  text-align: center;
+}
+
+.intro__container h1 {
+  @include typo-h1;
+  font-size: 2.3rem;
+  text-align: center;
+  margin-bottom: 0.3rem;
+
+  @include tablet {
+    font-size: 3.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  @include desktop {
+    font-size: 3.2rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.intro__slogan {
+  @include typo-p;
+  font-size: 1.1rem;
+  width: 19rem;
+  margin: 0 auto;
+ 
+
+  @include tablet {
+    font-size: 1.6rem;
+    width: 35.5rem;
+    margin: 0 auto;
+  }
+
+  @include desktop {
+    font-size: 1.6rem;
+    width: 35.5rem;
+    margin: 0 auto;
+  }
+}
+
+.button {
+  background-color: $color-red;
+  color: $color-primary;
+  border-radius: 1.37rem;
+  padding: 0.8rem 1.9rem;
+  text-align: center;
+  font-family: Source Sans Pro;
+  font-size: 0.87rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border: none;
+  margin-top: 1.4rem;
+  margin-bottom: 4.5rem;
+  @include btnHoverActive;
+
+  @include tablet {
+    font-size: 1.4rem;
+    padding: 1.3rem 3.1rem;
+    border-radius: 2.2rem;
+    width: 16.2rem;
+    margin-top: 4rem;
+    margin-bottom: 6.4rem;
+  }
+
+  @include desktop {
+    font-size: 1.4rem;
+    padding: 1.3rem 3.1rem;
+    border-radius: 2.2rem;
+    width: 16.2rem;
+    margin-top: 4rem;
+    margin-bottom: 6.4rem;
+  }
+}
+
+.intro__text {
+  @include typo-p;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.8rem;
+  width: 24rem;
+  margin: auto;
+  margin-bottom: 7.5rem;
+
+  @include tablet {
+    font-size: 1.6rem;
+    width: 64rem;
+    line-height: 2.6rem;
+  }
+
+  @include desktop {
+    font-size: 1.6rem;
+    width: 64rem;
+    line-height: 2.6rem;
+  }
+}
